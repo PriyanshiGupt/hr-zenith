@@ -9,14 +9,20 @@ import { MatSelectModule} from '@angular/material/select'
 import { NavigationComponent } from './navigation/navigation.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { AddSalaryComponent } from './add-salary/add-salary.component';
-import { AddProjectComponent } from './add-project/add-project.component'
+import { AddProjectComponent } from './add-project/add-project.component';
+import { SalaryDetailsComponent } from './salary-details/salary-details.component';
+import { TransactionsComponent } from './salary-details/transactions/transactions.component';
+import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-details/update-salary-details.component'
 
 @NgModule({
   declarations: [
     NavigationComponent,
     EmployeeDetailsComponent,
     AddSalaryComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    SalaryDetailsComponent,
+    TransactionsComponent,
+    UpdateSalaryDetailsComponent
   ],
   imports: [
     CommonModule,

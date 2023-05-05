@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <div class="btn-group custom-btn-group">
+    <button [class]='activeTab === "transactions" ? "btn btn-primary" : "btn btn-outline-primary"'
+      routerLink="transactions">Transactions</button>
+    <button [class]='activeTab === "employeeSalary" ? "btn btn-primary" : "btn btn-outline-primary"'
+      routerLink="employeeSalary">Employee Salary</button>
+  </div>
+  <router-outlet (activate)="onActivate($event)"></router-outlet>
+</div>

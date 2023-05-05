@@ -1,5 +1,6 @@
 :root {
     --main-color: #2578c1;
+    --secondary-color: #216bab;
     --dark-color: #0c2840;
   }
 
@@ -41,9 +42,39 @@ html, body {
   .heading {
     border-bottom : 1px solid transparent;
     border-image  : linear-gradient(to right, transparent, #aaa, transparent) 10 stretch;
-    // font-weight   : 600;
     text-align    : center;
     padding-bottom: 5px;
     margin-bottom : 20px;
     font-size     : 20px;
+  }
+
+  .btn-primary {
+    background-color: var(--main-color);
+  }
+  .btn-primary:hover {
+    background-color: var(--secondary-color);
+  }
+
+  .btn-primary:active:focus {
+    background-color: var(--dark-color);
+  }
+
+  .btn-outline-primary {
+    border-color: var(--main-color);
+  }
+  .btn-outline-primary:hover {
+    background-color: var(--main-color);
+  }
+  .btn-outline-primary:active:focus {
+    background-color: var(--dark-color);
+  }
+
+  .custom-btn-group > button {
+    border-radius: 50px;
+    padding: 5px 15px;
+  }
+  .custom-btn-group {
+    margin: 10px 0 30px;
+    left: 50%;
+    transform: translateX(-50%);
   }

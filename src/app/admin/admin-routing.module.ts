@@ -4,6 +4,9 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
 import { AddSalaryComponent } from './add-salary/add-salary.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { SalaryDetailsComponent } from './salary-details/salary-details.component';
+import { TransactionsComponent } from './salary-details/transactions/transactions.component';
+import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-details/update-salary-details.component';
 
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
@@ -15,6 +18,25 @@ const routes: Routes = [
       path:      'addSalary', 
       component: AddSalaryComponent,
       data :     { pageId : 'addSalary' }
+    },{
+      path:      'salaryDetails', 
+      component: SalaryDetailsComponent,
+      data :     { pageId : 'salaryDetails' },
+      children : [
+        {
+          path: '',
+          redirectTo : 'transactions',
+          pathMatch : 'full'
+        },{
+          path: 'transactions',
+          component : TransactionsComponent,
+          data : { pageId : 'transactions'}
+        },{
+          path: 'employeeSalary',
+          component : UpdateSalaryDetailsComponent,
+          data : { pageId : 'employeeSalary'}
+        },
+      ]
     },{
       path:      'addProject', 
       component: AddProjectComponent,
