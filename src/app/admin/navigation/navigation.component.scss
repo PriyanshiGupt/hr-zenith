@@ -1,0 +1,116 @@
+a {
+    color: #000;
+    font-size: 16px;
+  }
+  a:hover {
+    font-size: 17px;
+  }
+  mat-drawer{
+    width: 220px;
+    border-right: 2px solid var(--main-color);
+  }
+
+  .mainToolbar {
+    display: flex;
+    box-shadow: 0px 4px 8px 0px #00000026;
+    border-bottom: 2px solid var(--main-color);
+    align-items: center;
+    justify-content: flex-start;
+    padding: 8px 20px;
+    color: #000;
+    background-color:#EFF9FC;
+    .greetings{ 
+      width: 90%;
+      * {
+        margin: 0px;
+      }
+    }
+    .navBtn {
+      background: transparent;
+      border: none;
+      font-size: 20px;
+      color: #000;
+      padding-right: 20px;
+      cursor: pointer;
+      outline: none;
+      white-space: nowrap;
+      display: none;
+    }
+    .profilePic {
+      width: 50px;
+      height: 50px;
+      border: 2px solid var(--main-color)
+    }
+  }
+  .innerList a {
+    display: block;
+  }
+
+  .dropdown-item {
+    background-color: transparent;
+    cursor : pointer;
+    color: #000;
+  }
+  .logo{
+    border-bottom: 1px solid #ccc;
+    height: 105px;
+    margin-bottom:20px;
+  }
+  .outlet{
+    overflow-y : auto;
+  }
+  .mainLink {
+    display: block;
+    text-transform: uppercase;
+    padding: 15px 10px;
+    border-radius: 0 20px 20px 0;
+    background-color: transparent;
+    margin-right: 20px;
+  }
+  .mainLink[aria-expanded="true"] {
+    background-color: #ccc;
+  }
+  .mainLink:hover{
+    background-color: var(--main-color);
+    color: white;
+    font-size: 16px;
+  }
+  .innerList {
+    padding: 0 15px;
+    li {
+      padding: 5px;
+    }
+  }
+  .components .active {
+    background: var(--main-color);
+    color: white;
+  }
+  .innerList .active {
+    color: var(--main-color);
+    background-color: transparent;
+  }
+  .components {
+    overflow-y: auto;
+  }
+  .mailTo a {
+    all: unset;
+    cursor: pointer;
+    color: #0056b3;
+  }
+  .mailTo a:hover {
+    text-decoration: underline!important;
+  }
+  .fixToBottom {
+    height: 120px;
+  }
+  @media screen and (max-width: 376px) {
+    .hideOnSmallScreen {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    .mainToolbar .navBtn {
+      display: block;
+    }
+  }
+  
