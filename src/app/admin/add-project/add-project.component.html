@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="heading w-100">Add Project</div>
+    <form [formGroup]="projectForm" class="project-form">
+        <div class="form-group">
+            <label>Project Name</label>
+            <input type="text" formControlName="projectName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Client Name</label>
+            <input type="text" formControlName="clientName" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Project Type</label>
+            <input type="text" formControlName="projectType" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Project Manager</label>
+            <input type="text" formControlName="projectManager" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Developing Platform</label>
+            <input type="text" formControlName="developingPlatform" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Database Technology</label>
+            <input type="text" formControlName="databaseTechnology" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Project Description</label>
+            <textarea formControlName="projectDescription" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-primary">Add Project</button>
+        
+    </form>
+</div>  

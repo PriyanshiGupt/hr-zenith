@@ -8,13 +8,15 @@ import { MatSelectModule} from '@angular/material/select'
 
 import { NavigationComponent } from './navigation/navigation.component';
 import { EmployeeDetailsComponent } from './employee-details/employee-details.component';
-import { AddSalaryComponent } from './add-salary/add-salary.component'
+import { AddSalaryComponent } from './add-salary/add-salary.component';
+import { AddProjectComponent } from './add-project/add-project.component'
 
 @NgModule({
   declarations: [
     NavigationComponent,
     EmployeeDetailsComponent,
-    AddSalaryComponent
+    AddSalaryComponent,
+    AddProjectComponent
   ],
   imports: [
     CommonModule,

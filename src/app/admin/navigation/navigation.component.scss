@@ -104,6 +104,9 @@ a {
   .fixToBottom {
     height: 120px;
   }
+  .outlet {
+    margin-bottom: 20px;
+  }
   @media screen and (max-width: 376px) {
     .hideOnSmallScreen {
       display: none;
