@@ -7,6 +7,8 @@ import { AddProjectComponent } from './add-project/add-project.component';
 import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 import { TransactionsComponent } from './salary-details/transactions/transactions.component';
 import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-details/update-salary-details.component';
+import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { ProjectReportsComponent } from './project-reports/project-reports.component';
 
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
@@ -41,7 +43,15 @@ const routes: Routes = [
       path:      'addProject', 
       component: AddProjectComponent,
       data :     { pageId : 'addProject' }
-    },
+    },{
+      path:      'projectDetails', 
+      component: ProjectDetailsComponent,
+      data :     { pageId : 'projectDetails' }
+    },{
+      path:      'projectReports', 
+      component: ProjectReportsComponent,
+      data :     { pageId : 'projectReports' }
+    }
   ]},
 ];
 

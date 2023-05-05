@@ -24,7 +24,7 @@ export class NavigationComponent implements OnInit {
     { pageName: 'Salary Details',   pageIcon: 'fa fa-user',     pageLink: 'salaryDetails' },
     { pageName: 'Add Project',      pageIcon: 'fa fa-user',     pageLink: 'addProject'},
     { pageName: 'Project Details',  pageIcon: 'fa fa-user',     pageLink: 'projectDetails' },
-    { pageName: 'Project Report',   pageIcon: 'fa fa-user',     pageLink: 'projectReport' },
+    { pageName: 'Project Report',   pageIcon: 'fa fa-user',     pageLink: 'projectReports' },
     { pageName: 'Approve Leave',    pageIcon: 'fa fa-user',     pageLink: 'approveLeave' },
     { pageName: 'Attendance',       pageIcon: 'fa fa-user',     pageLink: 'attendance' },
 

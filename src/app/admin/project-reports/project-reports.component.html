@@ -1,0 +1,26 @@
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-colored">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Report</th>
+                    <th>Reported Time</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let report of projectReports">
+                    <td> {{ report['projectName'] || '--' }}</td>
+                    <td> {{ report['empId'] || '--' }}</td>
+                    <td> {{ report['empName'] || '--' }}</td>
+                    <td> {{ report['report'] || '--' }}</td>
+                    <td> {{ report['reportedTime'] | date : 'dd-MM-yy HH:mm:ss' || '--' }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
