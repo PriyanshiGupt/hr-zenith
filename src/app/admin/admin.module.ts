@@ -14,7 +14,8 @@ import { SalaryDetailsComponent } from './salary-details/salary-details.componen
 import { TransactionsComponent } from './salary-details/transactions/transactions.component';
 import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-details/update-salary-details.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
-import { ProjectReportsComponent } from './project-reports/project-reports.component'
+import { ProjectReportsComponent } from './project-reports/project-reports.component';
+import { ApproveLeaveComponent } from './approve-leave/approve-leave.component'
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectReportsComponent } from './project-reports/project-reports.compo
     TransactionsComponent,
     UpdateSalaryDetailsComponent,
     ProjectDetailsComponent,
-    ProjectReportsComponent
+    ProjectReportsComponent,
+    ApproveLeaveComponent
   ],
   imports: [
     CommonModule,

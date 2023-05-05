@@ -9,6 +9,7 @@ import { TransactionsComponent } from './salary-details/transactions/transaction
 import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-details/update-salary-details.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectReportsComponent } from './project-reports/project-reports.component';
+import { ApproveLeaveComponent } from './approve-leave/approve-leave.component';
 
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
@@ -51,6 +52,10 @@ const routes: Routes = [
       path:      'projectReports', 
       component: ProjectReportsComponent,
       data :     { pageId : 'projectReports' }
+    },{
+      path:      'approveLeaves', 
+      component: ApproveLeaveComponent,
+      data :     { pageId : 'approveLeaves' }
     }
   ]},
 ];

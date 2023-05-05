@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-colored">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Reason for Leave</th>
+                    <th>From Date</th>
+                    <th>To Date</th>
+                    <th class="text-center">Approve</th>
+                    <th class="text-center">Reject</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let leave of pendingLeaves">
+                    <td> {{ leave['empId'] || '--' }}</td>
+                    <td> {{ leave['empName'] || '--' }}</td>
+                    <td> {{ leave['reason'] || '--' }}</td>
+                    <td> {{ leave['fromDate'] || '--' }}</td>
+                    <td> {{ leave['toDate'] || '--' }}</td>
+                    <td class="text-center"><button class="btn btn-outline-success">Approve</button></td>
+                    <td class="text-center"><button class="btn btn-outline-danger">Reject</button></td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
