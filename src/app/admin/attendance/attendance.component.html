@@ -1,0 +1,25 @@
+<div class="container-fluid">
+    <div class="employees-in">
+        <div class="heading">Employees In</div>
+        <div class="d-flex flex-wrap" >
+            <div class="attendance-card" *ngFor="let employee of employeesPresent" 
+                [title]="'Id ' + employee['empId']" [style.background-color]="getRandomDarkColor()">
+                <h4>{{employee['empName']}}</h4>
+                <small>Clock In : {{employee['clockIn']}}</small>
+                <small *ngIf="employee['clockOut']">Clock Out : {{employee['clockOut']}}</small>
+
+            </div>
+        </div>
+    </div>
+    <div class="employees-not-in">
+        <div class="heading">Employees Not In Yet</div>
+        <div class="d-flex flex-wrap">
+            <div class="attendance-card" *ngFor="let employee of employeesNotPresent"
+            [title]="'Id ' + employee['empId']" [style.background-color]="getRandomDarkColor()">
+                <h4>
+                    {{employee['empName']}}
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,7 @@ import { UpdateSalaryDetailsComponent } from './salary-details/update-salary-det
 import { ProjectDetailsComponent } from './project-details/project-details.component';
 import { ProjectReportsComponent } from './project-reports/project-reports.component';
 import { ApproveLeaveComponent } from './approve-leave/approve-leave.component';
+import { AttendanceComponent } from './attendance/attendance.component';
 
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
@@ -56,6 +57,11 @@ const routes: Routes = [
       path:      'approveLeaves', 
       component: ApproveLeaveComponent,
       data :     { pageId : 'approveLeaves' }
+    },{
+      path:      'attendance', 
+      component: AttendanceComponent,
+      data :     { pageId : 'attendance' }
+
     }
   ]},
 ];
