@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-colored">
+            <thead>
+                <tr>
+                    <th>Project Name</th>
+                    <th>Client Name</th>
+                    <th>Project Type</th>
+                    <th>Developing Platform</th>
+                    <th>Database Technology</th>
+                    <th>Description</th>
+                    <th>Added On</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let project of projects">
+                    <td> {{ project['projectName'] || '--' }}</td>
+                    <td> {{ project['clientName'] || '--' }}</td>
+                    <td> {{ project['projectType'] || '--' }}</td>
+                    <td> {{ project['developingPlatform'] || '--' }}</td>
+                    <td> {{ project['databaseTech'] || '--' }}</td>
+                    <td> {{ project['description'] || '--' }}</td>
+                    <td> {{ project['created'] | date: 'dd-MM-yy HH:mm:ss' || '--' }}</td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

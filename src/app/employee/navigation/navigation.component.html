@@ -1,1 +1,36 @@
-<p>Employee navigation works!</p>
+<mat-drawer-container class="w-100 h-100">
+    <mat-drawer #drawer [autoFocus]='false' [mode]=navMode [(opened)]=navOpened>
+      <div class="d-flex flex-column h-100">
+        <img alt='logo' class="w-100 logo" src='assets/images/logo.jpg' />
+        <ul class="list-unstyled components h-100" id="navLinksParent">
+          <li *ngFor='let navData of pageNavigationData'>
+            <a class='mainLink' [routerLink]='navData.pageLink' (click)="navMode === 'over' && drawer.close()"
+              [ngClass]="{'active' : activeTab === navData.pageLink}">
+              <i [class]="navData.pageIcon"></i>&nbsp;&nbsp;{{navData.pageName}}
+            </a>
+          </li>
+        </ul>
+        <ul class="list-unstyled components fixToBottom">
+          <li class="align-middle">
+            <a class="mainLink" (click)="logout()">
+              <i class="logout-icon"></i> Log Out
+            </a>
+          </li>
+        </ul>
+      </div>
+    </mat-drawer>
+  
+    <div class="d-flex flex-column h-100 bg-white">
+      <div class="mainToolbar">
+        <button class="navBtn" (click)="drawer.open()"><i title="Open Sidebar" class="fas fa-bars"></i></button>
+        <div class="greetings">
+          <h2>{{greeting}}<span class="hideOnSmallScreen">, Employee</span></h2>
+          <h6 class="hideOnSmallScreen text-muted">Welcome back, nice to see you again!</h6>
+        </div>
+        <img class="profilePic rounded-circle" src='assets/images/defaultProfile.jpeg' alt="profile">
+      </div>
+      <div class="outlet h-100">
+        <router-outlet (activate)="onActivate($event)"></router-outlet>
+      </div>
+    </div>
+  </mat-drawer-container>
