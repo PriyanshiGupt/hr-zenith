@@ -18,7 +18,7 @@ export class NavigationComponent implements OnInit {
 
   pageNavigationData = [
     
-    { pageName: 'My Profile' ,        pageIcon: 'fa fa-user',     pageLink: 'employeeDetails' },
+    { pageName: 'My Profile' ,        pageIcon: 'fa fa-user',     pageLink: 'profile' },
     { pageName: 'Salary Details',   pageIcon: 'fa fa-user',     pageLink: 'salaryDetails' },
     { pageName: 'Project Details',  pageIcon: 'fa fa-user',     pageLink: 'projectDetails' },
     { pageName: 'Project Report',   pageIcon: 'fa fa-user',     pageLink: 'addProjectReport' },

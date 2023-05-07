@@ -14,6 +14,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 import { ProjectReportComponent } from './project-report/project-report.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
     ProjectDetailsComponent,
     SalaryDetailsComponent,
     ProjectReportComponent,
-    ApplyLeaveComponent
+    ApplyLeaveComponent,
+    ProfileComponent
   ],
   imports: [
     CommonModule,

@@ -5,10 +5,19 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { SalaryDetailsComponent } from './salary-details/salary-details.component';
 import { ProjectReportComponent } from './project-report/project-report.component';
 import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
     {
+      path: '',
+      redirectTo : 'profile',
+      pathMatch : 'full'
+    }, {
+      path: 'profile',
+      component: ProfileComponent,
+      data : {pageId : 'profile'}
+    }, {
       path: 'projectDetails',
       component: ProjectDetailsComponent,
       data : {pageId : 'projectDetails'}

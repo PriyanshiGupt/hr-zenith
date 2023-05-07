@@ -1,0 +1,52 @@
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <div class="col-lg-5">
+            <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100">
+                <img src="assets/images/defaultProfile.jpeg" class="img-profile">
+                <button class="btn btn-primary d-block mt-2 ">
+                    {{profile['clockIn'] ? 'Clock Out' : 'Clock In'}}
+                    
+                </button>
+            </div>
+
+        </div>
+        <div class="col-lg-7">
+            <div class="d-flex justify-content-center align-items-center h-100">
+                <table class="w-75 table table-borderless mx-auto">
+                    <tbody>
+                        <tr>
+                            <th>Name</th>
+                            <td>:</td>
+                            <td>{{profile['name']}}</td>
+                        </tr>
+                        <tr>
+                            <th>Designation</th>
+                            <td>:</td>
+                            <td>{{profile['designation']}}</td>
+                        </tr>
+                        <tr>
+                            <th>D.O.B.</th>
+                            <td>:</td>
+                            <td>{{profile['dob']}}</td>
+                        </tr>
+                        <tr>
+                            <th>Gender</th>
+                            <td>:</td>
+                            <td>{{profile['gender']}}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>:</td>
+                            <td>{{profile['email']}}</td>
+                        </tr>
+                        <tr>
+                            <th>Address</th>
+                            <td>:</td>
+                            <td>{{profile['address']}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
