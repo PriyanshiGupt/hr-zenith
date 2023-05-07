@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="heading w-100">Apply Leave</div>
+    <form [formGroup]="leaveForm" class="leave-form">
+        <div class="form-group">
+            <label>From Date</label>
+            <div class="input-group">
+                <input class="form-control" [matDatepicker]="fromdatepicker" formControlName="fromDate" placeholder = 'mm/dd/yyyy'>
+                <mat-datepicker #fromdatepicker></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="fromdatepicker" class="input-group-text"></mat-datepicker-toggle>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>To Date</label>
+            <div class="input-group">
+                <input class="form-control" [matDatepicker]="todatepicker" formControlName="toDate" placeholder = 'mm/dd/yyyy'
+                    [min]="leaveForm.controls['fromDate'].value">
+                <mat-datepicker #todatepicker></mat-datepicker>
+                <mat-datepicker-toggle matSuffix [for]="todatepicker" class="input-group-text"></mat-datepicker-toggle>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Reason for leave</label>
+            <textarea rows=4 formControlName="reason" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-primary">Apply Leave</button>
+        
+    </form>
+</div>  

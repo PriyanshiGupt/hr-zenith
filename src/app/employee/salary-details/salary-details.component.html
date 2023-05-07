@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="table-responsive">
+        <table class="table table-colored">
+            <thead>
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Amount</th>
+                    <th>Month</th>
+                    <th>Transaction Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let transaction of transactions">
+                    <td>{{transaction['empId'] || '--'}}</td>
+                    <td>{{transaction['empName'] || '--'}}</td>
+                    <td>{{transaction['amount'] || '--'}}</td>
+                    <td>{{transaction['month'] || '--'}}</td>
+                    <td>{{transaction['transactedOn'] | date:'dd-MM-yy HH:mm:ss' || '--'}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

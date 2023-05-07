@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="heading w-100">Add Project Report</div>
+    <form [formGroup]="projectForm" class="project-form">
+        <div class="form-group">
+            <label>Project Name</label>
+            <mat-select placeholder="Select Project Name" formControlName='projectName' class="form-control">
+                <mat-option *ngFor='let project of projectsAssigned' [value]='project["id"]'>{{project["name"]}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="form-group">
+            <label>Project Report</label>
+            <textarea rows=8 formControlName="projectReport" class="form-control"></textarea>
+        </div>
+
+        <button class="btn btn-primary">Submit Report</button>
+        
+    </form>
+</div>  

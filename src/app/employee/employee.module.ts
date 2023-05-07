@@ -4,23 +4,35 @@ import { ReactiveFormsModule } from '@angular/forms'
 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatSelectModule} from '@angular/material/select'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatInputModule} from '@angular/material/input'
 
 import { EmployeeRoutingModule } from './employee-routing.module';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ProjectDetailsComponent } from './project-details/project-details.component';
+import { SalaryDetailsComponent } from './salary-details/salary-details.component';
+import { ProjectReportComponent } from './project-report/project-report.component';
+import { ApplyLeaveComponent } from './apply-leave/apply-leave.component';
 
 
 @NgModule({
   declarations: [
     NavigationComponent,
-    ProjectDetailsComponent
+    ProjectDetailsComponent,
+    SalaryDetailsComponent,
+    ProjectReportComponent,
+    ApplyLeaveComponent
   ],
   imports: [
     CommonModule,
     EmployeeRoutingModule,
     ReactiveFormsModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule
   ]
 })
 export class EmployeeModule { }
