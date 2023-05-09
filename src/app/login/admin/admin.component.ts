@@ -31,7 +31,6 @@ export class AdminComponent implements OnInit {
   }
 
   navigateToAdminPortal() {
-    this.cookieStorageService.setCookie('role','ADMIN')
     this.router.navigateByUrl('admin')
   }
 }

@@ -1,15 +1,15 @@
-.login-form {
+.employee-form {
     width: 60%;
-    margin: auto;
+
     & > *{
-        margin-top: 20px;
+        margin-top: 10px;
     }
     input:read-only {
         cursor: not-allowed;
     }
 }
 @media screen and (max-width: 760px) {
-    .login-form {
+    .employee-form {
         width: 90%;
     }
 }
