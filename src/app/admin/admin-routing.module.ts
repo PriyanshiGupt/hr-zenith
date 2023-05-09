@@ -15,6 +15,10 @@ import { AttendanceComponent } from './attendance/attendance.component';
 const routes: Routes = [
   {path: '', component: NavigationComponent, children: [
     {
+      path: '',
+      redirectTo : 'attendance',
+      pathMatch : 'full'
+    }, {
       path:      'employeeDetails', 
       component: EmployeeDetailsComponent,
       data :     { pageId : 'employeeDetails' }

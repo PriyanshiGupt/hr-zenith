@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { CookieStorageService } from 'src/app/shared/services/cookie-storage.service';
 
 @Component({
   selector: 'app-employee',
@@ -12,11 +13,17 @@ export class EmployeeComponent implements OnInit {
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
 
   constructor(
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute, 
+    private cookieStorageService : CookieStorageService,
+    private router : Router
   ) { }
 
   ngOnInit(): void {
     this.activePage.emit(this.pageId)
   }
 
+  navigateToEmployeePortal() {
+    this.cookieStorageService.setCookie('role','EMPLOYEE')
+    this.router.navigateByUrl('employee')
+  }
 }
