@@ -17,13 +17,13 @@
             </thead>
             <tbody>
                 <tr *ngFor="let employee of employees">
-                    <td>employee['id']</td>
-                    <td>employee['name']</td>
-                    <td>employee['designation']</td>
-                    <td>employee['dob']</td>
-                    <td>employee['gender']</td>
-                    <td>employee['mobileNumber']</td>
-                    <td>employee['status']</td>
+                    <td>{{employee['id']}}</td>
+                    <td>{{employee['name']}}</td>
+                    <td>{{employee['designation']}}</td>
+                    <td>{{employee['dob']}}</td>
+                    <td>{{employee['gender']}}</td>
+                    <td>{{employee['mobileNumber']}}</td>
+                    <td>{{employee['status']}}</td>
                     <td class="text-center"><button class="btn btn-outline-success">Approve</button></td>
                     <td class="text-center"><button class="btn btn-outline-danger"><i class='fa fa-trash'></i></button></td>
                 </tr>

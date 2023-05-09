@@ -10,7 +10,7 @@ export class EmployeeDetailsComponent implements OnInit {
 
   @Output() activePage = new EventEmitter<string>()
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
-  employees : {[key: string]: any} = [
+  employees : {[key: string]: any}[] = [
     {
       id : 'abc',
       name : 'sdf',
