@@ -1,3 +1,15 @@
+<div class="container-fluid">
+    <div class="btn-group custom-btn-group">
+      <button [class]='activeTab === "admin" ? "btn btn-primary" : "btn btn-outline-primary"'
+        routerLink="admin">Admin</button>
+      <button [class]='activeTab === "employee" ? "btn btn-primary" : "btn btn-outline-primary"'
+        routerLink="employee">Employee</button>
+    </div>
+    <router-outlet (activate)="onActivate($event)"></router-outlet>
+  </div>
+
+
+<!-- 
 <p>login Page</p>
 <button class="btn btn-primary" (click)="navigateToEmployeePortal()">Go to Employee Portal</button>
-<button class="btn btn-secondary" (click)="navigateToAdminPortal()">Go to Admin Portal</button>
+<button class="btn btn-secondary" (click)="navigateToAdminPortal()">Go to Admin Portal</button> -->

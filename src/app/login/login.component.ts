@@ -9,6 +9,7 @@ import { CookieStorageService } from '../shared/services/cookie-storage.service'
 })
 export class LoginComponent implements OnInit {
 
+  activeTab : string = null
   constructor(
     private router : Router,
     private cookieStorageService : CookieStorageService
@@ -16,6 +17,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
   navigateToEmployeePortal() {
     this.cookieStorageService.setCookie('role','EMPLOYEE')
     this.router.navigateByUrl('employee')
@@ -23,6 +25,16 @@ export class LoginComponent implements OnInit {
   navigateToAdminPortal() {
     this.cookieStorageService.setCookie('role','ADMIN')
     this.router.navigateByUrl('admin')
+  }
+
+  onActivate(componentRef) {
+    if( componentRef.pageId ) {
+      componentRef.activePage.subscribe((data)=>{
+        setTimeout(() => {
+          this.activeTab = data;
+        }, 0)
+      })
+    }
   }
 
 }
