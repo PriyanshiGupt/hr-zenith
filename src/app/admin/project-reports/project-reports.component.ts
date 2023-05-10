@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectsService } from 'src/app/projects.service';
 
 @Component({
   selector: 'app-project-reports',
@@ -20,11 +21,19 @@ export class ProjectReportsComponent implements OnInit {
     }
   ]
   constructor(
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private projectService : ProjectsService
   ) { }
 
   ngOnInit(): void {
     this.activePage.emit(this.pageId)
+    this.getProjectReports()
+  }
+
+  getProjectReports() {
+    this.projectService.getProjectReports().subscribe((response: {[key : string]: any}[]) => {
+      this.projectReports = response
+    })
   }
 
 }

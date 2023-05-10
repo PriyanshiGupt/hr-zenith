@@ -40,11 +40,7 @@ export class EmployeeComponent implements OnInit {
 
   login() {
     const loginDetails = this.loginForm.value
-    // console.log(loginDetails.password)
-    // loginDetails.password = this.loginService.hashPassword(loginDetails.password)
-    // console.log(loginDetails.password)
     this.loginService.employeeLogin(loginDetails).subscribe((response : string) => {
-      console.log(response)
       this.cookieStorageService.setCookie('employeeId', response)
       this.toasterService.showSuccess("Login Success")
       this.navigateToEmployeePortal()

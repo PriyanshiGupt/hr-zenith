@@ -18,6 +18,12 @@
             <input type="text" formControlName="projectManager" class="form-control">
         </div>
         <div class="form-group">
+            <label>Project Manager</label>
+            <mat-select placeholder="Select Employee Manager" formControlName='projectManager' class="form-control">
+                <mat-option *ngFor='let employee of employees' [value]='employee["_id"]'>{{employee["name"]}}</mat-option>
+            </mat-select>
+        </div>
+        <div class="form-group">
             <label>Developing Platform</label>
             <input type="text" formControlName="developingPlatform" class="form-control">
         </div>
@@ -30,7 +36,7 @@
             <textarea formControlName="projectDescription" class="form-control"></textarea>
         </div>
 
-        <button class="btn btn-primary">Add Project</button>
+        <button class="btn btn-primary" (click)="addProject()" [disabled]="projectForm.invalid">Add Project</button>
         
     </form>
 </div>  

@@ -15,9 +15,9 @@
                 <tr *ngFor="let report of projectReports">
                     <td> {{ report['projectName'] || '--' }}</td>
                     <td> {{ report['empId'] || '--' }}</td>
-                    <td> {{ report['empName'] || '--' }}</td>
-                    <td> {{ report['report'] || '--' }}</td>
-                    <td> {{ report['reportedTime'] | date : 'dd-MM-yy HH:mm:ss' || '--' }}</td>
+                    <td> {{ report['employeeName'] || '--' }}</td>
+                    <td> {{ report['projectReport'] || '--' }}</td>
+                    <td> {{ report['reportedTime'] | date : 'dd-MM-yy hh:mm aa' || '--' }}</td>
                     
                 </tr>
             </tbody>

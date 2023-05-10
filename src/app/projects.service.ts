@@ -14,4 +14,13 @@ export class ProjectsService {
   getAllProjectDetails() {
     return this.http.get(environment.baseUrl + 'Project/getAllProjects')
   }
+
+  addProject(data) {
+    return this.http.post(environment.baseUrl + 'Project/addProject', data)
+  }
+
+  getProjectReports() {
+    return this.http.get(environment.baseUrl + 'Report/getProjectReports')
+  }
 }
+ 
