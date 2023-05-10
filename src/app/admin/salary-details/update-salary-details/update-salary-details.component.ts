@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-update-salary-details',
@@ -23,7 +25,9 @@ export class UpdateSalaryDetailsComponent implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private fb             : FormBuilder
+    private fb             : FormBuilder,
+    private employeeService : EmployeeService,
+    private toasterService : ToasterService
   ) { }
 
   ngOnInit(): void {
@@ -31,9 +35,10 @@ export class UpdateSalaryDetailsComponent implements OnInit {
     this.employeeForm = this.fb.group({
       id            : [null, Validators.required],
       name          : [null],
-      salary        : [null, Validators.required, Validators.pattern('[1-9][0-9]*')],
-      updatedSalary : [null, Validators.required, Validators.pattern('[1-9][0-9]*')],
+      salary        : [null],
+      updatedSalary : [null, [Validators.required, Validators.pattern('[1-9][0-9]*')]],
     })
+    this.getEmployeeDetails()
   }
 
   setSelectedEmployee(employee) {
@@ -41,7 +46,23 @@ export class UpdateSalaryDetailsComponent implements OnInit {
     this.employeeForm.controls['salary'].setValue(employee.salary)
   }
 
+  getEmployeeDetails() {
+    this.employeeService.getAllEmployees().subscribe((response : {[key: string] : any}[]) => {
+      this.employeeDetails = response
+    })
+  }
+
   updateSalary() {
+    const salaryDetails = this.employeeForm.value
+    const id = salaryDetails.id
+    const salaryBody = {
+      salary: salaryDetails.updatedSalary
+    }
+    this.employeeService.updateEmployeeSalary(id, salaryBody).subscribe((response : string)=> {
+      this.employeeForm.reset()
+      this.getEmployeeDetails()
+      this.toasterService.showSuccess(response)
+    })
     
   }
 }

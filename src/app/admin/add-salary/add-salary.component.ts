@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
   selector: 'app-add-salary',
@@ -24,7 +25,8 @@ export class AddSalaryComponent implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private fb             : FormBuilder
+    private fb             : FormBuilder,
+    private employeeService : EmployeeService
   ) { }
 
   ngOnInit(): void {
@@ -35,11 +37,18 @@ export class AddSalaryComponent implements OnInit {
       month  : [null],
       salary : [null],
     })
+    this.getEmployeeDetails()
   }
 
   setSelectedEmployee(employee) {
     this.employeeForm.controls['name'].setValue(employee.name)
     this.employeeForm.controls['salary'].setValue(employee.salary)
     this.salaryPendingForMonths = employee.salaryPendingForMonths
+  }
+
+  getEmployeeDetails() {
+    this.employeeService.getAllEmployees().subscribe((response : {[key: string] : any}[]) => {
+      this.employeeDetails = response
+    })
   }
 }

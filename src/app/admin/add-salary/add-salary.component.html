@@ -4,7 +4,7 @@
         <div class="form-group">
             <label>Employee Id</label>
             <mat-select placeholder="Select Employee Id" formControlName='id' class="form-control">
-                <mat-option *ngFor='let employee of employeeDetails' [value]='employee["id"]' (onSelectionChange)="setSelectedEmployee(employee)">{{employee["id"]}}</mat-option>
+                <mat-option *ngFor='let employee of employeeDetails' [value]='employee["_id"]' (onSelectionChange)="setSelectedEmployee(employee)">{{employee["_id"]}}</mat-option>
             </mat-select>
         </div>
         <div class="form-group">

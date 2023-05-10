@@ -17,7 +17,7 @@ import { ProjectDetailsComponent } from './project-details/project-details.compo
 import { ProjectReportsComponent } from './project-reports/project-reports.component';
 import { ApproveLeaveComponent } from './approve-leave/approve-leave.component';
 import { AttendanceComponent } from './attendance/attendance.component'
-// import { ToastrModule } from 'ngx-toastr'
+
 @NgModule({
   declarations: [
     NavigationComponent,
@@ -38,7 +38,6 @@ import { AttendanceComponent } from './attendance/attendance.component'
     MatSidenavModule,
     AdminRoutingModule,
     MatSelectModule,
-    // ToastrModule
   ]
 })
 export class AdminModule { }

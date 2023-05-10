@@ -23,4 +23,8 @@ export class EmployeeService {
   addEmployee(data) {
     return this.http.post(environment.baseUrl + 'Employee/addEmployee', data)
   }
+
+  updateEmployeeSalary(id, data) {
+    return this.http.patch(environment.baseUrl + 'Employee/updateSalary/' +id, data  )
+  }
 }
