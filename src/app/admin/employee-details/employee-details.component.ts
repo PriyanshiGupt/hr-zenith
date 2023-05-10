@@ -9,6 +9,11 @@ enum EMPLOYEE_STATUS {
   'REJECTED' = 'REJECTED'
 }
 
+enum GENDER {
+  'M' = 'Male',
+  'F' = 'Female',
+  'O' = 'Other'
+}
 @Component({
   selector: 'app-employee-details',
   templateUrl: './employee-details.component.html',
@@ -20,6 +25,7 @@ export class EmployeeDetailsComponent implements OnInit {
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
   employees : {[key: string]: any}[] = []
   EMPLOYEE_STATUS = EMPLOYEE_STATUS
+  GENDER = GENDER
 
   constructor(
     private activatedRoute : ActivatedRoute,

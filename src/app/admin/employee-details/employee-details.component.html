@@ -21,7 +21,7 @@
                     <td>{{employee['name']}}</td>
                     <td>{{employee['designation']}}</td>
                     <td>{{employee['dob']}}</td>
-                    <td>{{employee['gender']}}</td>
+                    <td>{{GENDER[employee['gender']]}}</td>
                     <td>{{employee['mobile']}}</td>
                     <td>{{employee['status'] == 1 ? EMPLOYEE_STATUS.APPROVED : EMPLOYEE_STATUS.WAITING}}</td>
                     <td class="text-center">
