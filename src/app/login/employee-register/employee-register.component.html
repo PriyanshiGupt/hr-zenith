@@ -15,7 +15,11 @@
         </div>
         <div class="form-group">
             <label for="gender">Gender</label>
-            <input class="form-control" formControlName="gender" id="gender">
+            <mat-select class="form-control" formControlName="gender" id="gender">
+                <mat-option value="M" >Male</mat-option>
+                <mat-option value="F" >Female</mat-option>
+                <mat-option value="O" >Others</mat-option>
+            </mat-select>
         </div>
         <div class="form-group">
             <label for="mobile">Mobile Number</label>

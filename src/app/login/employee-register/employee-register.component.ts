@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-employee-register',
@@ -14,7 +16,9 @@ export class EmployeeRegisterComponent implements OnInit {
 
   constructor(
     private formBuilder : FormBuilder,
-    private router : Router
+    private router : Router,
+    private employeeService : EmployeeService,
+    private toasterService : ToasterService
   ) { }
 
   ngOnInit(): void {
@@ -31,6 +35,10 @@ export class EmployeeRegisterComponent implements OnInit {
   }
 
   registerEmployee() {
-    this.router.navigateByUrl('/login')
+    this.employeeService.addEmployee(this.employeeForm.value).subscribe(response => {
+
+      this.router.navigateByUrl('/login')
+      this.toasterService.showSuccess('Employee Registered Successfully')
+    })
   } 
 }

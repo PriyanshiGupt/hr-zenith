@@ -6,6 +6,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import { LoginRoutingModule } from './login-routing.module'
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { EmployeeRegisterComponent } from './employee-register/employee-register.component'
+import { MatSelectModule } from '@angular/material/select'
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EmployeeRegisterComponent } from './employee-register/employee-register
     CommonModule,
     LoginRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
   ] 
 })
 export class LoginModule { }
