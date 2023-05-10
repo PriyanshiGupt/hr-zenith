@@ -14,12 +14,6 @@ export class UpdateSalaryDetailsComponent implements OnInit {
   @Output() activePage                      = new EventEmitter<string>()
   pageId          : string                  = this.activatedRoute.snapshot.data['pageId']
   employeeDetails : {[key: string] : any}[] = [ 
-    {
-      id : 112,
-      name : 'Priyanshi',
-      salary : '53788',
-      salaryPendingForMonths : ['March', 'April']
-    }
   ]
   employeeForm    : FormGroup
 
@@ -43,7 +37,7 @@ export class UpdateSalaryDetailsComponent implements OnInit {
 
   setSelectedEmployee(employee) {
     this.employeeForm.controls['name'].setValue(employee.name)
-    this.employeeForm.controls['salary'].setValue(employee.salary)
+    this.employeeForm.controls['salary'].setValue(employee.salary || 0)
   }
 
   getEmployeeDetails() {

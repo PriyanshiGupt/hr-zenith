@@ -44,6 +44,12 @@ export class ProjectReportComponent implements OnInit {
     } )
   }
   addProjectReport() {
-
+    const reportDetails  = this.projectForm.value
+    const employeeId = localStorage.getItem('employeeId')
+    reportDetails.empId = employeeId
+    this.projectService.addProjectReport(reportDetails).subscribe(response => {
+      this.projectForm.reset()
+      this.toasterService.showSuccess('Project Report Created')
+    })
   }
 }

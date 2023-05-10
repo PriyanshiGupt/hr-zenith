@@ -26,5 +26,8 @@ export class ProjectsService {
   getProjectReports() {
     return this.http.get(environment.baseUrl + 'Report/getProjectReports')
   }
+  addProjectReport(data) {
+    return this.http.post(environment.baseUrl + 'Report/addReport', data)
+  }
 }
  

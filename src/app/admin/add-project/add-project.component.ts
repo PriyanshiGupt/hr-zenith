@@ -47,6 +47,8 @@ export class AddProjectComponent implements OnInit {
 
   addProject() {
     const data  = this.projectForm.value
+    data.empId = data.projectManager._id
+    data.projectManager = data.projectManager.name
     this.projectService.addProject(data).subscribe(response => {
       this.projectForm.reset()
       this.toasterService.showSuccess('Project Created Successfully')

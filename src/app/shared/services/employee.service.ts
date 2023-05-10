@@ -37,4 +37,7 @@ export class EmployeeService {
   applyLeave(data) {
     return this.http.post(environment.baseUrl + 'Leaves/addLeave', data)
   }
+  getSalaryDetails(id) {
+    return this.http.get(environment.baseUrl + 'Transactions/transactionDetailsById/' + id)
+  }
 }

@@ -12,7 +12,7 @@
             <textarea rows=8 formControlName="projectReport" class="form-control"></textarea>
         </div>
 
-        <button class="btn btn-primary">Submit Report</button>
+        <button class="btn btn-primary" [disabled]="projectForm.invalid" (click)="addProjectReport()">Submit Report</button>
         
     </form>
 </div>  
