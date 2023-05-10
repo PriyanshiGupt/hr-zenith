@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { MatDrawerMode} from '@angular/material/sidenav'
 import { CookieStorageService } from 'src/app/shared/services/cookie-storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -32,7 +33,8 @@ export class NavigationComponent implements OnInit {
   ]
 
   constructor(
-    private cookieStorageService : CookieStorageService
+    private cookieStorageService : CookieStorageService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -82,7 +84,8 @@ export class NavigationComponent implements OnInit {
   ============================================================================*/
   logout(): void {
     this.cookieStorageService.clearAllCookies();
-    window.location.href = 'localhost:4200';
+    // window.location.href = 'localhost:4200';
+    this.router.navigateByUrl('../')
         
   }
 }

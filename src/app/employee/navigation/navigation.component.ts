@@ -64,7 +64,7 @@ export class NavigationComponent implements OnInit {
   }
 
   private getEmployeeById() {
-    var id = this.cookieStorageService.getDecodedCookie('employeeId')
+    var id = this.cookieStorageService.getDecodedCookie('employeeId') || localStorage.getItem('employeeId')
     this.employeeService.getEmployeeById(id).subscribe(response => {
       this.employeeName = response['name']
     })

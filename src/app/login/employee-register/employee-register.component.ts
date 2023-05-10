@@ -27,7 +27,7 @@ export class EmployeeRegisterComponent implements OnInit {
       email         : [null, [Validators.required]],
       dob           : [null, [Validators.required]],
       gender        : [null, [Validators.required]],
-      mobileNumber  : [null, [Validators.required]],
+      mobile  : [null, [Validators.required]],
       address       : [null, [Validators.required]],
       designation   : [null, [Validators.required]],
       password      : [null, [Validators.required]]

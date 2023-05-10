@@ -42,6 +42,7 @@ export class EmployeeComponent implements OnInit {
     const loginDetails = this.loginForm.value
     this.loginService.employeeLogin(loginDetails).subscribe((response : string) => {
       this.cookieStorageService.setCookie('employeeId', response)
+      localStorage.setItem('employeeId', response )
       this.toasterService.showSuccess("Login Success")
       this.navigateToEmployeePortal()
     }, err => {
