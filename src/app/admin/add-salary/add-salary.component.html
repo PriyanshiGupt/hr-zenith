@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="heading w-100">Add Salary</div>
-    <form [formGroup]="employeeForm" class="employee-form">
+    <form [formGroup]="employeeForm" class="employee-form" *ngIf="employeeDetails.length">
         <div class="form-group">
             <label>Employee Id</label>
-            <mat-select placeholder="Select Employee Id" formControlName='id' class="form-control">
+            <mat-select placeholder="Select Employee Id" formControlName='empId' class="form-control">
                 <mat-option *ngFor='let employee of employeeDetails' [value]='employee["_id"]' (onSelectionChange)="setSelectedEmployee(employee)">{{employee["_id"]}}</mat-option>
             </mat-select>
         </div>
@@ -25,7 +25,8 @@
             </mat-select>
         </div>
 
-        <button class="btn btn-primary">Pay Employee</button>
+        <button class="btn btn-primary" [disabled]="employeeForm.invalid" (click)="payEmployee()">Pay Employee</button>
         
     </form>
+    <h4 *ngIf="!employeeDetails.length" class="text-center">Salary Paid to all Employees.</h4>
 </div>  
