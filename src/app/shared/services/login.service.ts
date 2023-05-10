@@ -18,4 +18,8 @@ export class LoginService {
   employeeLogin(data) {
     return this.http.post(environment.baseUrl + 'Employee/login', data)
   }
+
+  adminLogin(data) {
+    return this.http.post(environment.baseUrl + 'Admin/adminlogin', data)
+  }
 }
