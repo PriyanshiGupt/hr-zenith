@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { AdminService } from 'src/app/shared/services/admin.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-transactions',
@@ -11,22 +13,22 @@ export class TransactionsComponent implements OnInit {
   @Output() activePage = new EventEmitter<string>()
   activeTab : string = null
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
-  transactions : {[key: string]: any}[] = [
-    {
-      empId : 112,
-      empName : 'bhavna',
-      amount : 23443,
-      month : 'may',
-      transactedOn : 123213232
-    }
-  ]
+  transactions : {[key: string]: any}[] = []
 
   constructor(
-    private activatedRoute : ActivatedRoute
+    private activatedRoute : ActivatedRoute,
+    private adminService : AdminService,
+    private toasterService : ToasterService
   ) { }
 
   ngOnInit(): void {
     this.activePage.emit(this.pageId)
+    this.getAllTransactions()
   }
 
+  getAllTransactions() {
+    this.adminService.getAllTransactions().subscribe((response : {[key: string]: any}[]) => {
+      this.transactions = response
+    })
+  }
 }

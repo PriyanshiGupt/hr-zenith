@@ -12,10 +12,10 @@
         <tbody>
             <tr *ngFor="let transaction of transactions">
                 <td>{{transaction['empId'] || '--'}}</td>
-                <td>{{transaction['empName'] || '--'}}</td>
-                <td>{{transaction['amount'] || '--'}}</td>
+                <td>{{transaction['name'] || '--'}}</td>
+                <td>{{transaction['salary'] || '--'}}</td>
                 <td>{{transaction['month'] || '--'}}</td>
-                <td>{{transaction['transactedOn'] | date:'dd-MM-yy HH:mm:ss' || '--'}}</td>
+                <td>{{transaction['transactionTime'] | date:'dd-MM-yy hh:mm aa' || '--'}}</td>
             </tr>
         </tbody>
     </table>
