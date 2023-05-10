@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { fromEvent } from 'rxjs';
 import { CookieStorageService } from 'src/app/shared/services/cookie-storage.service';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
   selector: 'app-navigation',
@@ -14,7 +15,7 @@ export class NavigationComponent implements OnInit {
   navOpened: boolean
   activeTab: string
   greeting : string 
-  adminName : string
+  employeeName : string
 
   pageNavigationData = [
     
@@ -28,12 +29,14 @@ export class NavigationComponent implements OnInit {
   ]
 
   constructor(
-    private cookieStorageService : CookieStorageService
+    private cookieStorageService : CookieStorageService,
+    private employeeService : EmployeeService
   ) {}
 
   ngOnInit(): void {
     this.setGreeting()
     this.onResizeOrLoad()
+    this.getEmployeeById()
     fromEvent(window ,'resize').subscribe(() => this.onResizeOrLoad())
   }
 
@@ -60,6 +63,12 @@ export class NavigationComponent implements OnInit {
     }
   }
 
+  private getEmployeeById() {
+    var id = this.cookieStorageService.getDecodedCookie('employeeId')
+    this.employeeService.getEmployeeById(id).subscribe(response => {
+      this.employeeName = response['name']
+    })
+  }
   /*============================================================================
                           CALLBACKS
   ============================================================================*/

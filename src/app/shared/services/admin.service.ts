@@ -14,4 +14,13 @@ export class AdminService {
   getAllTransactions() {
     return this.http.get(environment.baseUrl + 'Transactions/getAllTransactions')
   }
+  getAllLeaves() {
+    return this.http.get(environment.baseUrl + 'Leaves/getAllLeaves')
+  }
+  approveLeave(id) {
+    return this.http.patch(environment.baseUrl + 'Leaves/approveLeave/' + id, {})
+  }
+  rejectLeave(id) {
+    return this.http.patch(environment.baseUrl + 'Leaves/rejectLeave/' + id, {})
+  }
 }

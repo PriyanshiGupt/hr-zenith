@@ -13,6 +13,9 @@ export class EmployeeService {
   getAllEmployees() {
     return this.http.get(environment.baseUrl + 'Employee/getAllEmployee')
   }
+  getEmployeeById(id) {
+    return this.http.get(environment.baseUrl + 'Employee/detailsById/' + id)
+  }
   rejectEmployee(id) {
     return this.http.patch(environment.baseUrl + 'Employee/rejectEmployee/' + id, {} )
   }

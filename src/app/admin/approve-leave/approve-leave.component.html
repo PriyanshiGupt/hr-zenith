@@ -8,6 +8,7 @@
                     <th>Reason for Leave</th>
                     <th>From Date</th>
                     <th>To Date</th>
+                    <th>Status</th>
                     <th class="text-center">Approve</th>
                     <th class="text-center">Reject</th>
                 </tr>
@@ -19,9 +20,15 @@
                     <td> {{ leave['reason'] || '--' }}</td>
                     <td> {{ leave['fromDate'] || '--' }}</td>
                     <td> {{ leave['toDate'] || '--' }}</td>
-                    <td class="text-center"><button class="btn btn-outline-success">Approve</button></td>
-                    <td class="text-center"><button class="btn btn-outline-danger">Reject</button></td>
-                    
+                    <td> {{leave['status'] == 1 ? LEAVE_STATUS.APPROVED : (leave['status'] == 0 ? LEAVE_STATUS.WAITING : LEAVE_STATUS.REJECTED)}}</td>
+                    <td class="text-center">
+                        <button *ngIf="leave['status'] == 0" class="btn btn-outline-success" (click)="approveLeave(leave['_id'])">Approve</button>
+                        <span *ngIf="leave['status'] != 0"> -- </span>
+                    </td>
+                    <td class="text-center">
+                        <button *ngIf="leave['status'] == 0" class="btn btn-outline-danger" (click)="rejectLeave(leave['_id'])"><i class='fa fa-trash'></i></button>
+                        <span *ngIf="leave['status'] != 0"> -- </span>
+                    </td>
                 </tr>
             </tbody>
         </table>
