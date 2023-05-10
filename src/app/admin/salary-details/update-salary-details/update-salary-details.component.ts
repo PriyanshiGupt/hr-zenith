@@ -36,8 +36,10 @@ export class UpdateSalaryDetailsComponent implements OnInit {
   }
 
   setSelectedEmployee(employee) {
+
     this.employeeForm.controls['name'].setValue(employee.name)
     this.employeeForm.controls['salary'].setValue(employee.salary || 0)
+    // console.log(employee)
   }
 
   getEmployeeDetails() {
@@ -48,7 +50,7 @@ export class UpdateSalaryDetailsComponent implements OnInit {
 
   updateSalary() {
     const salaryDetails = this.employeeForm.value
-    const id = salaryDetails.id
+    const id = salaryDetails.id._id
     const salaryBody = {
       salary: salaryDetails.updatedSalary
     }
