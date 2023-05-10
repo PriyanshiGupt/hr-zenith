@@ -40,4 +40,10 @@ export class EmployeeService {
   getSalaryDetails(id) {
     return this.http.get(environment.baseUrl + 'Transactions/transactionDetailsById/' + id)
   }
+  clockIn(data) {
+    return this.http.patch(environment.baseUrl + 'Employee/clockIn', data)
+  }
+  clockOut(data) {
+    return this.http.patch(environment.baseUrl + 'Employee/clockOut', data)
+  }
 }

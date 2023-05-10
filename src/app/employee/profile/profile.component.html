@@ -3,9 +3,9 @@
         <div class="col-lg-5">
             <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100">
                 <img src="assets/images/defaultProfile.jpeg" class="img-profile">
-                <button class="btn btn-primary d-block mt-2 ">
-                    {{profile['clockIn'] ? 'Clock Out' : 'Clock In'}}
-                    
+                <button class="btn btn-primary d-block mt-2 " *ngIf="!profile['clockIn'] || profile['clockIn'] && profile['clockOut']" (click)="clockIn()">Clock In
+                </button>
+                <button class="btn btn-primary d-block mt-2 " *ngIf="!profile['clockOut'] && profile['clockIn']" (click)="clockOut()">Clock Out
                 </button>
             </div>
 

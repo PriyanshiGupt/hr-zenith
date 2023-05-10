@@ -85,7 +85,7 @@ export class NavigationComponent implements OnInit {
   logout(): void {
     this.cookieStorageService.clearAllCookies();
     // window.location.href = 'localhost:4200';
-    this.router.navigateByUrl('../')
+    this.router.navigateByUrl('/')
         
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDrawerMode } from '@angular/material/sidenav';
+import { Router } from '@angular/router';
 import { fromEvent } from 'rxjs';
 import { CookieStorageService } from 'src/app/shared/services/cookie-storage.service';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
@@ -30,7 +31,8 @@ export class NavigationComponent implements OnInit {
 
   constructor(
     private cookieStorageService : CookieStorageService,
-    private employeeService : EmployeeService
+    private employeeService : EmployeeService,
+    private router : Router
   ) {}
 
   ngOnInit(): void {
@@ -87,7 +89,8 @@ export class NavigationComponent implements OnInit {
   ============================================================================*/
   logout(): void {
     this.cookieStorageService.clearAllCookies();
-    window.location.href = 'localhost:4200';
-        
+    // window.location.href = 'localhost:4200';
+    localStorage.removeItem('employeeId')
+        this.router.navigateByUrl('/')
   }
 }

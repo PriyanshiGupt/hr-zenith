@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieStorageService } from 'src/app/shared/services/cookie-storage.service';
 import { EmployeeService } from 'src/app/shared/services/employee.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 enum GENDER {
   'M' = 'Male',
@@ -20,11 +21,13 @@ export class ProfileComponent implements OnInit {
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
   profile : {[key: string] : any} = {}
   GENDER = GENDER
+  empId = this.cookieStorageService.getDecodedCookie('employeeId') || localStorage.getItem('employeeId')
 
   constructor(
     private activatedRoute : ActivatedRoute,
     private employeeService : EmployeeService,
-    private cookieStorageService : CookieStorageService
+    private cookieStorageService : CookieStorageService,
+    private toasterService : ToasterService
   ) { }
 
   ngOnInit(): void {
@@ -33,9 +36,27 @@ export class ProfileComponent implements OnInit {
   }
 
   getEmployeeById() {
-    let id = this.cookieStorageService.getDecodedCookie('employeeId') || localStorage.getItem('employeeId')
-    this.employeeService.getEmployeeById(id).subscribe(response => {
+
+    this.employeeService.getEmployeeById(this.empId).subscribe(response => {
       this.profile = response
+    })
+  }
+  clockIn() {
+    let data  = {
+      id : this.empId
+    }
+    this.employeeService.clockIn(data).subscribe(response => {
+      this.getEmployeeById()
+      this.toasterService.showSuccess('Clocked In Successfully')
+    })
+  }
+  clockOut() {
+    let data  = {
+      id : this.empId
+    }
+    this.employeeService.clockOut(data).subscribe(response => {
+      this.getEmployeeById()
+      this.toasterService.showSuccess('Clocked Out Successfully')
     })
   }
 }

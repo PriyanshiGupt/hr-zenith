@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { EmployeeService } from 'src/app/shared/services/employee.service';
 
 @Component({
   selector: 'app-attendance',
@@ -10,38 +11,18 @@ export class AttendanceComponent implements OnInit {
 
   @Output() activePage = new EventEmitter<string>()
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
-  employeesPresent  : {[key : string]: any}[]   = [
-    {
-      empId : 112,
-      empName : 'asdf',
-      clockIn : '12:12 AM',
-      clockOut : '12:30 PM'
-    },
-    {
-      empId : 112,
-      empName : 'asdf',
-      clockIn : '12:12 AM',
-      // clockOut : '12:30 PM'
-    },
+  employeesPresent  : {[key : string]: any}[]   = []
 
-  ]
-
-  employeesNotPresent  = [
-    {empId : 112, empName : 'asdd'}
-  ]
+  employeesNotPresent  = []
 
   constructor(
     private activatedRoute : ActivatedRoute,
+    private employeeService : EmployeeService
   ) { }
   
   ngOnInit(): void {
     this.activePage.emit(this.pageId)
-    this.employeesPresent.forEach(val => {
-      val['bgColor'] = this.getRandomDarkColor()
-    })
-    this.employeesNotPresent.forEach(val => {
-      val['bgColor'] = this.getRandomDarkColor()
-    })
+    this.getAllEmployees()
   }
 
   getRandomDarkColor() {
@@ -51,6 +32,16 @@ export class AttendanceComponent implements OnInit {
     }
 
     return color; 
+}
+getAllEmployees() {
+  this.employeeService.getAllEmployees().subscribe((response : {[key: string]: any}[]) => {
+    const allEmployee = response
+    allEmployee.forEach(val => {
+      val['bgColor'] = this.getRandomDarkColor()
+      if(val['clockIn']) this.employeesPresent.push(val)
+      else this.employeesNotPresent.push(val)
+    })
+  })
 }
 
 }
