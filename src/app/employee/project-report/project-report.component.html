@@ -4,7 +4,7 @@
         <div class="form-group">
             <label>Project Name</label>
             <mat-select placeholder="Select Project Name" formControlName='projectName' class="form-control">
-                <mat-option *ngFor='let project of projectsAssigned' [value]='project["id"]'>{{project["name"]}}</mat-option>
+                <mat-option *ngFor='let project of projectsAssigned' [value]='project["projectName"]'>{{project["projectName"]}}</mat-option>
             </mat-select>
         </div>
         <div class="form-group">

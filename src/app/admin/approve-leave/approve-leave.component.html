@@ -18,8 +18,8 @@
                     <td> {{ leave['empId'] || '--' }}</td>
                     <td> {{ leave['empName'] || '--' }}</td>
                     <td> {{ leave['reason'] || '--' }}</td>
-                    <td> {{ leave['fromDate'] || '--' }}</td>
-                    <td> {{ leave['toDate'] || '--' }}</td>
+                    <td> {{ leave['fromDate'] | date: 'dd-MM-yy hh:mm a'|| '--' }}</td>
+                    <td> {{ leave['toDate']| date: 'dd-MM-yy hh:mm a' || '--' }}</td>
                     <td> {{leave['status'] == 1 ? LEAVE_STATUS.APPROVED : (leave['status'] == 0 ? LEAVE_STATUS.WAITING : LEAVE_STATUS.REJECTED)}}</td>
                     <td class="text-center">
                         <button *ngIf="leave['status'] == 0" class="btn btn-outline-success" (click)="approveLeave(leave['_id'])">Approve</button>

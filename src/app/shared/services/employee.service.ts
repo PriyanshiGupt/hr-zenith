@@ -34,4 +34,7 @@ export class EmployeeService {
   addEmployeeSalary(data) {
     return this.http.post(environment.baseUrl + 'Employee/addSalary', data)
   }
+  applyLeave(data) {
+    return this.http.post(environment.baseUrl + 'Leaves/addLeave', data)
+  }
 }

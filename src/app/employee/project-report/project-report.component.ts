@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { ProjectsService } from 'src/app/projects.service';
+import { ToasterService } from 'src/app/shared/services/toaster.service';
 
 @Component({
   selector: 'app-project-report',
@@ -21,7 +23,9 @@ export class ProjectReportComponent implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private formBuilder    : FormBuilder
+    private formBuilder    : FormBuilder,
+    private projectService : ProjectsService ,
+    private toasterService : ToasterService
   ) { }
 
   ngOnInit(): void {
@@ -30,9 +34,16 @@ export class ProjectReportComponent implements OnInit {
       projectName         :[null, [Validators.required]],
       projectReport       :[null, [Validators.required]],
     })
+    this.getProjectDetailsById()
   }
 
-  addProject() {
+  getProjectDetailsById() {
+    const employeeId = localStorage.getItem('employeeId')
+    this.projectService.getProjectDetailsById(employeeId).subscribe((response: {[key: string]: any}[]) => {
+      this.projectsAssigned = response
+    } )
+  }
+  addProjectReport() {
 
   }
 }
