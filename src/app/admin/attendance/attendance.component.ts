@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -6,11 +6,11 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './attendance.component.html',
   styleUrls: ['./attendance.component.scss']
 })
-export class AttendanceComponent implements OnInit, AfterViewInit {
+export class AttendanceComponent implements OnInit {
 
   @Output() activePage = new EventEmitter<string>()
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
-  employeesPresent     = [
+  employeesPresent  : {[key : string]: any}[]   = [
     {
       empId : 112,
       empName : 'asdf',
@@ -32,18 +32,19 @@ export class AttendanceComponent implements OnInit, AfterViewInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private changeDetectorRef : ChangeDetectorRef
   ) { }
-  ngAfterViewInit(): void {
-    this.changeDetectorRef.detectChanges()
-  }
-
+  
   ngOnInit(): void {
     this.activePage.emit(this.pageId)
-    // this.changeDetectorRef.detectChanges()
+    this.employeesPresent.forEach(val => {
+      val['bgColor'] = this.getRandomDarkColor()
+    })
+    this.employeesNotPresent.forEach(val => {
+      val['bgColor'] = this.getRandomDarkColor()
+    })
   }
 
-  get getRandomDarkColor() {
+  getRandomDarkColor() {
     var color = '#';
     for (var i = 0; i < 6; i++) {
         color += Math.floor(Math.random() * 10);
