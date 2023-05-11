@@ -33,8 +33,8 @@ export class AddProjectComponent implements OnInit {
       projectType         :[null, [Validators.required]],
       projectManager      :[null, [Validators.required]],
       developingPlatform  :[null, [Validators.required]],
-      databaseTechnology  :[null, [Validators.required]],
-      projectDescription  :[null, [Validators.required]],
+      databaseTech  :[null, [Validators.required]],
+      description         :[null, [Validators.required]],
     })
     this.getAllEmployees()
   }
