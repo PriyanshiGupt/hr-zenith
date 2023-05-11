@@ -16,7 +16,7 @@
             <tbody>
                 <tr *ngFor="let leave of pendingLeaves">
                     <td> {{ leave['empId'] || '--' }}</td>
-                    <td> {{ leave['empName'] || '--' }}</td>
+                    <td> {{ leave['name'] || '--' }}</td>
                     <td> {{ leave['reason'] || '--' }}</td>
                     <td> {{ leave['fromDate'] | date: 'dd-MM-yy hh:mm a'|| '--' }}</td>
                     <td> {{ leave['toDate']| date: 'dd-MM-yy hh:mm a' || '--' }}</td>
