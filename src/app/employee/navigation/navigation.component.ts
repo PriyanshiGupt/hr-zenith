@@ -17,6 +17,7 @@ export class NavigationComponent implements OnInit {
   activeTab: string
   greeting : string 
   employeeName : string
+  profilePic = { letter: '', bgColor: ''}
 
   pageNavigationData = [
     
@@ -64,11 +65,21 @@ export class NavigationComponent implements OnInit {
       this.navOpened = true
     }
   }
+  getRandomDarkColor() {
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += Math.floor(Math.random() * 10);
+    }
+
+    return color; 
+  }
 
   private getEmployeeById() {
     var id = this.cookieStorageService.getDecodedCookie('employeeId') || localStorage.getItem('employeeId')
     this.employeeService.getEmployeeById(id).subscribe(response => {
       this.employeeName = response['name']
+      this.profilePic['letter'] = this.employeeName[0]
+      this.profilePic['bgColor']= this.getRandomDarkColor()
     })
   }
   /*============================================================================

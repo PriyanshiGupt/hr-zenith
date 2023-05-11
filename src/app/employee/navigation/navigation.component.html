@@ -27,7 +27,8 @@
           <h2>{{greeting}}<span class="hideOnSmallScreen">, {{employeeName}}</span></h2>
           <h6 class="hideOnSmallScreen text-muted">Welcome back, nice to see you again!</h6>
         </div>
-        <img class="profilePic rounded-circle" src='assets/images/defaultProfile.jpeg' alt="profile">
+        <!-- <img class="profilePic rounded-circle" src='assets/images/defaultProfile.jpeg' alt="profile"> -->
+        <div class="profilePic" [style.background-color]="profilePic.bgColor">{{profilePic.letter}}</div>
       </div>
       <div class="outlet h-100">
         <router-outlet (activate)="onActivate($event)"></router-outlet>

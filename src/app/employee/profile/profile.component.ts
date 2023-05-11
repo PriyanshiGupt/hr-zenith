@@ -20,6 +20,13 @@ export class ProfileComponent implements OnInit {
   @Output() activePage = new EventEmitter<string>()
   pageId : string      = this.activatedRoute.snapshot.data['pageId']
   profile : {[key: string] : any} = {}
+  profilePic : {
+    letter : string,
+    bgColor : string
+  }  = {
+    letter : '',
+    bgColor : ''
+  }
   GENDER = GENDER
   empId = this.cookieStorageService.getDecodedCookie('employeeId') || localStorage.getItem('employeeId')
 
@@ -39,8 +46,23 @@ export class ProfileComponent implements OnInit {
 
     this.employeeService.getEmployeeById(this.empId).subscribe(response => {
       this.profile = response
+      this.profilePic = {
+        letter : response['name'].toUpperCase()[0],
+        bgColor : this.getRandomDarkColor()
+      }
     })
   }
+
+
+  getRandomDarkColor() {
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += Math.floor(Math.random() * 10);
+    }
+
+    return color; 
+}
+
   clockIn() {
     let data  = {
       id : this.empId
